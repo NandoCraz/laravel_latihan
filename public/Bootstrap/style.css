@@ -1,0 +1,18 @@
+/* navbar */
+.navbar {
+  position: relative;
+  z-index: 1;
+}
+
+.navbar-brand {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 32px;
+}
+
+.jumbotron {
+  background-image: url(img/work.png);
+  background-size: cover;
+  height: 600px;
+  position: relative;
+  text-align: center;
+}

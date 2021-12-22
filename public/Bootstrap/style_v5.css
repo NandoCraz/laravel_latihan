@@ -1,0 +1,21 @@
+.jumbotron {
+  padding-top: 7rem;
+  background-color: skyblue;
+}
+
+.display-4 {
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.projects {
+  background-color: skyblue;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+section {
+  padding-top: 5rem;
+}
