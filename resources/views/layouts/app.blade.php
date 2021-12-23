@@ -22,7 +22,15 @@
 
     <!-- bootstrap -->
     <link rel="stylesheet" href="{{ asset('Bootstrap/css/bootstrap.min.css') }}">
+    
 </head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Rokkitt&family=Ubuntu+Mono:wght@400;700&display=swap');
+*{
+    font-family: 'Rokkitt','Ubuntu Mono',sans-serif;
+    font-weight: bold;
+}
+</style>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
