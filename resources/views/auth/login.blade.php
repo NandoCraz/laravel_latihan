@@ -3,11 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center mt-5">
-        <div class="col-md-6">
+        <div class="col-md-6 ">
             <img src="{{asset('image/kartun.png')}}" class="gambar1" style="width: 400px; height: 400px">
         </div>
-        <div class="col-md-6">
-            <div class="card w-100">
+        <div class="col-md-6 ">
+            <div class="card w-100 ">
                 <div class="card-body">
                     <div class="text-center">
                         <img src="{{asset('image/loginR.png')}}" style="width: 70px; height: 70px; margin-bottom: 30px">

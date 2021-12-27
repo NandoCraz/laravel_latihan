@@ -28,7 +28,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rokkitt&family=Ubuntu+Mono:wght@400;700&display=swap');
 *{
     font-family: 'Rokkitt','Ubuntu Mono',sans-serif;
-    font-weight: bold;
 }
 </style>
 <body>
