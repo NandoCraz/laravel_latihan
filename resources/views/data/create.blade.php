@@ -4,16 +4,16 @@
 <div class="wrapper">
   <h1>Buat Data Baru</h1>
 
-  <a href="/data" class="btn-red" style="padding: 5px; border-radius: 4px">Kembali</a>
+  <a href="/data" class="btn-red" style="padding: 5px; border-radius: 4px"><button class="btn btn-secondary">Kembali</button></a>
   
-  @if (session('Success'))
-  <div class="alert-success">
-    <p>{{ session('Success') }}</p>
+  @if (session('success'))
+  <div class="alert alert-success" style="margin-top: 15px" role="alert">
+    <p>{{ session('success') }}</p>
   </div>
   @endif
   
   @if ($errors->any())
-  <div class="alert-danger">
+  <div class="alert alert-warning" style="margin-top: 15px" role="alert">
     <ul>
       @foreach ($errors->all() as $error)
       <li>{{ $error }}</li>
@@ -24,10 +24,19 @@
   
   <form method="POST" style="margin-top: 20px;" action="{{ url('data') }}">
     @csrf
-    <input name="nip" type="text" placeholder="Masukkan NIP"> 
-    <input name="nama_guru" type="text" placeholder="Masukkan Nama Guru">
-    <input name="mata_pelajaran" type="text" placeholder="Mata Pelajaran">
-    <button class="btn-blue" style="margin-top: 20px">Submit</button>
+     <div class="mb-3">
+      <label for="nip" class="form-label">NIP</label>
+      <input name="nip" class="form-control" id="nip" placeholder="Tambahkan NIP">
+    </div>
+    <div class="mb-3">
+      <label for="nama_guru" class="form-label">Nama Guru</label>
+      <input name="nama_guru" class="form-control" id="nama_guru" placeholder="Tambahkan Nama Guru">
+    </div>
+    <div class="mb-3">
+      <label for="mata_pelajaran" class="form-label">Mata Pelajaran</label>
+      <input name="mata_pelajaran" type="text" class="form-control" id="mata_pelajaran" placeholder="Tambahkan Mata Pelajaran">
+    </div>
+    <button class="btn btn-primary">Submit</button>
   </form>
 </div>
 @endsection
