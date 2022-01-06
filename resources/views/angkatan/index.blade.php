@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.main')
 @section('dataTitle', 'Data Semua Kelas')
 @section('content')
 <div class="wrapper">

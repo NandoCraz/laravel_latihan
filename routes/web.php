@@ -6,6 +6,8 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\AngkatanController;
+use App\Http\Controllers\WalkelController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +29,15 @@ Route::resource('siswa', SiswaController::class);
 Route::resource('barang', BarangController::class);
 Route::resource('kelas', KelasController::class);
 Route::resource('angkatan', AngkatanController::class);
+Route::resource('walkel', WalkelController::class);
+
+Route::get('user',[UserController::class,'index']);
+Route::get('user/edit/{id}',[UserController::class,'edit']);
+Route::get('user/delete/{id}',[UserController::class,'destroy']);
+Route::post('user/edit/{id}',[UserController::class,'update']);
+Route::post('user/reset/{id}',[UserController::class,'reset']);
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

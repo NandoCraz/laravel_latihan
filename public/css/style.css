@@ -22,7 +22,7 @@ input {
     border: 2px solid #444;
 } */
 .btn-blue {
-    color: #fff;
+    color: rgb(0, 0, 0);
     text-decoration: none;
 }
 /*.alert-success p {
