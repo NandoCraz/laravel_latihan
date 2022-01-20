@@ -60,7 +60,7 @@
                 <option value="{{ $angkat->id }}" 
                     @if ($angkat->id == $walkel->jurusan)
                         selected            
-                    @endif> {{ $gr->jurusan }}
+                    @endif> {{ $angkat->jurusan }}
                 </option>                          
             @endforeach
         </select>

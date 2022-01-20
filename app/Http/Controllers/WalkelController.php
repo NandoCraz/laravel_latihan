@@ -23,6 +23,8 @@ class WalkelController extends Controller
         ->join('kelas','kelas.id','=','walkels.id_ruangan')
         ->get(['walkels.*','data.nama_guru','angkatans.kelas','angkatans.jurusan','kelas.nama_ruangan']);
         return view('walkel.index',compact('wali'));
+
+        
     }
 
     /**
@@ -114,7 +116,7 @@ class WalkelController extends Controller
             'tahun_ajaran' => 'required' 
          ]);
                
-         $wali = walkels::find($id)->update($request->all()); 
+         $wali = walkel::find($id)->update($request->all()); 
                 
          return back()->with('success',' Data telah diperbaharui!');
     }
@@ -128,10 +130,11 @@ class WalkelController extends Controller
     public function destroy($id)
     {
         //
-        $wali = walkel::find($id);
+    $wali = walkel::findOrFail($id);
 
-   $wali->delete();
-
-   return back()->with('success',' Penghapusan berhasil.');
+    if ($wali != null) {
+        $wali->delete();
+        return back()->with('success',' Penghapusan berhasil.');
+        }
     }
 }

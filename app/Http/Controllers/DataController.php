@@ -40,15 +40,21 @@ class DataController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'nip' => 'required|unique:data|max:150',
+        $this->validate($request, [
+            'nip' => 'required|unique:data',
             'nama_guru' => 'required',
-            'mata_pelajaran'
+            'mata_pelajaran' => 'required'
         ]);
 
-        $input = $request->all();
-        $data = data::create($input);
-        return back()->with('Success', 'Post baru berhasil dibuat.');
+        $input = new data;
+
+        $input -> nip = $request->input('nip');
+        $input -> nama_guru = $request->input('nama_guru');
+        $input -> mata_pelajaran = $request->input('mata_pelajaran');
+
+        $input -> save();
+
+        return back()->with('berhasil','Data baru telah ditambahkan.');
     }
 
     /**
@@ -94,7 +100,7 @@ class DataController extends Controller
 
         $data = data::find($id)->update($request->all());
 
-        return back()->with('Success','Data Telah Diubah');
+        return back()->with('success','Data Telah Diubah');
 
     }
 
@@ -111,6 +117,6 @@ class DataController extends Controller
 
         $data->delete();
 
-        return back()->with('Success','Data berhasil dihapus.');
+        return back()->with('success','Data berhasil dihapus.');
     }
 }

@@ -12,9 +12,14 @@
     <p>{{ session('success') }}</p>
   </div>
   @endif
-  @if (session('error'))
-  <div class="alert alert-danger" style="margin-top: 15px" role="alert">
-    <p>{{ session('error') }}</p>
+  
+  @if ($errors->any())
+  <div class="alert alert-warning" style="margin-top: 15px" role="alert">
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+    </ul>
   </div>
   @endif
 
@@ -48,7 +53,7 @@
           </div>
           <div class="mb-3">
             <label for="new_pass" class="form-label">Password Baru</label>
-            <input name="new_pass" type="password" class="form-control" id="new_pass" placeholder="Password Masukkan">
+            <input name="new_pass" type="password" class="form-control" id="new_pass" placeholder="Masukkan Password Baru">
           </div>
           <div class="mb-3">
             <label for="conf_pass" class="form-label">Konfirmasi Password Baru</label>

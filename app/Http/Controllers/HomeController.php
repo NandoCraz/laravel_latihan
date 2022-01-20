@@ -3,6 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\data;
+use App\Models\siswa;
+use App\Models\angkatan;
+use App\Models\kelas;
+use App\Models\walkel;
+
+
 
 class HomeController extends Controller
 {
@@ -23,6 +30,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $tampil = [
+            'data' => data::get(),
+            'siswa' => siswa::get(),
+            'angkatan' => angkatan::get(),
+            'kelas' => kelas::get(),
+            'walkel' => walkel::get()
+        ];
+        return view('home', $tampil);
     }
 }

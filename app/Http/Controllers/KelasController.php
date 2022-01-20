@@ -40,16 +40,19 @@ class KelasController extends Controller
     public function store(Request $request)
     {
         //
-        $request -> validate([
-            'no_ruangan' => 'required|unique:kelas|max:150',
+        $this->validate($request, [
+            'no_ruangan' => 'required|unique:kelas',
             'nama_ruangan' => 'required'
         ]);
 
-        $input = $request->all();
+        $input = new kelas;
 
-        $kelas = kelas::create($input);
+        $input -> no_ruangan = $request->input('no_ruangan');
+        $input -> nama_ruangan = $request->input('nama_ruangan');
 
-        return back()->with('success','Kelas baru telah ditambahkan.');
+        $input -> save();
+
+        return back()->with('berhasil','Data baru telah ditambahkan.');
     }
 
     /**

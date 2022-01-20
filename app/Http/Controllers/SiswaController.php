@@ -39,15 +39,21 @@ class SiswaController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'no_absen' => 'required|unique:siswas|max:150',
+        $this->validate($request, [
+            'no_absen' => 'required|unique:data',
             'nama_siswa' => 'required',
             'keahlian_bidang' => 'required'
         ]);
 
-        $input = $request->all();
-        $siswa = siswa::create($input);
-        return back()->with('success','Data baru telah ditambahkan.');
+        $input = new siswa;
+
+        $input -> no_absen = $request->input('no_absen');
+        $input -> nama_siswa = $request->input('nama_siswa');
+        $input -> keahlian_bidang = $request->input('keahlian_bidang');
+
+        $input -> save();
+
+        return back()->with('berhasil','Data baru telah ditambahkan.');
     }
 
     /**
@@ -74,7 +80,7 @@ class SiswaController extends Controller
 
         return view ('siswa.edit', [
             'siswa' => $siswa
-        ]);
+        ]); 
     }
 
     /**

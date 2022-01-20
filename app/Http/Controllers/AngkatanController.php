@@ -40,16 +40,19 @@ class AngkatanController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'kelas' => 'required|max: 150',
+        $this->validate($request, [
+            'kelas' => 'required',
             'jurusan' => 'required'
         ]);
 
-        $input = $request->all();
+        $input = new angkatan;
 
-        $angkatan = angkatan::create($input);
+        $input -> kelas = $request->input('kelas');
+        $input -> jurusan = $request->input('jurusan');
 
-        return back()->with('success', 'Data siswa telah ditambahkan.');
+        $input -> save();
+
+        return back()->with('berhasil','Data baru telah ditambahkan.');
     }
 
     /**

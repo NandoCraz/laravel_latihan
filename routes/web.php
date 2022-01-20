@@ -28,6 +28,11 @@ Route::resource('data', DataController::class);
 Route::resource('siswa', SiswaController::class);
 Route::resource('barang', BarangController::class);
 Route::resource('kelas', KelasController::class);
+Route::get('/kelas/delete/{id}', [KelasController::class,'destroy']);
+Route::get('/data/delete/{id}', [DataController::class,'destroy']);
+Route::get('/angkatan/delete/{id}', [AngkatanController::class,'destroy']);
+Route::get('/siswa/delete/{id}', [SiswaController::class,'destroy']);
+Route::get('/walkel/delete/{id}', [WalkelController::class,'destroy']);
 Route::resource('angkatan', AngkatanController::class);
 Route::resource('walkel', WalkelController::class);
 
